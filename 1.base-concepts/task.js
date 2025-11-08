@@ -10,6 +10,7 @@ function solveEquation(a, b, c) {
   else if (countD === 0) {
     let onlyRoot = -b/(2 * a);
     arr.push(onlyRoot);
+    return arr;
  
   }
   else {
