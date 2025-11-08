@@ -1,17 +1,24 @@
 "use strict";
+
 function solveEquation(a, b, c) {
-  const discriminant = b ** 2 - 4 * a * c;
-    if (discriminant < 0) {
-      return [];
-      }
+  let arr = [];
+  let countD = b ** 2 - 4 * a * c;
 
-      if (discriminant === 0) {
-        return [-b / (2 * a)];
-        }  
+  if (countD < 0) {
+    return arr;
+  }
+  else if (countD === 0) {
+    let onlyRoot = -b/(2 * a);
+    arr.push(onlyRoot);
+ 
+  }
+  else {
+    let fstRoot = (-b + Math.sqrt(countD))/(2 * a);
+    let sndRoot = (-b - Math.sqrt(countD))/(2 * a);
 
-  const root1 = (-b + Math.sqrt(discriminant)) / ( 2 * a);
-  const root2 = (-b - Math.sqrt(discriminant)) / ( 2 * a);
-  return [root1, root2];
+    arr.push(fstRoot, sndRoot);
+    return arr;
+  }
 }
 
 solveEquation(a, b, c);
