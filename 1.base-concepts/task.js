@@ -1,28 +1,24 @@
 "use strict";
 
 function solveEquation(a, b, c) {
-  let arr = [];
   let countD = b ** 2 - 4 * a * c;
 
-  if (countD < 0) {
-    return arr;
-  }
-  else if (countD === 0) {
+  if (countD === 0) {
     let onlyRoot = -b/(2 * a);
-    arr.push(onlyRoot);
-    return arr;
+    return [onlyRoot];
+  }
+  else if (countD > 0) {
+    let fstRoot = (-b + Math.sqrt(countD))/(2 * a);
+    let sndRoot = (-b - Math.sqrt(countD))/(2 * a);
+    return [fstRoot,sndRoot];
  
   }
   else {
-    let fstRoot = (-b + Math.sqrt(countD))/(2 * a);
-    let sndRoot = (-b - Math.sqrt(countD))/(2 * a);
-
-    arr.push(fstRoot, sndRoot);
-    return arr;
+    return [];
   }
 }
 
-solveEquation(a, b, c);
+console.log(solveEquation());
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
   let coeff = percent / 100 / 12;
@@ -34,4 +30,4 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
   return roundedTotal;
 }
 
-calculateTotalMortgage(percent, contribution, amount, countMonths);
+console.log(calculateTotalMortgage());
